@@ -33,7 +33,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "yzuNA1gnk"
+        "uid": "267fd114-2acd-11ee-be56-0242ac120002"
       },
       "description": "",
       "gridPos": {
@@ -58,7 +58,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "yzuNA1gnk"
+            "uid": "267fd114-2acd-11ee-be56-0242ac120002"
           },
           "editorMode": "code",
           "expr": "{container=~\"$container\"} |~ \"(?i)$search\" | json | line_format \"{{.log}}\"",
@@ -86,7 +86,7 @@
         },
         "datasource": {
           "type": "loki",
-          "uid": "yzuNA1gnk"
+          "uid": "267fd114-2acd-11ee-be56-0242ac120002"
         },
         "definition": "label_values(container)",
         "hide": 0,
@@ -146,7 +146,8 @@
     ]
   },
   "timezone": "",
-  "title": "Loki Logs with quicksearch",
+  "title": "Loki Logs with quicksearch - gastromatic",
+  "uid": "267fd114-2acd-11ee-be56-0242ac120002",
   "version": 1,
   "weekStart": ""
 }
