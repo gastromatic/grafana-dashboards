@@ -59,7 +59,7 @@
             "type": "loki"
           },
           "editorMode": "code",
-          "expr": "{container=~\"$container\"} |~ \"(?i)$search\" | json | line_format \"{{.log}}\"",
+          "expr": "{container=~\"$container\"} |~ \"(?i)$search\"",
           "legendFormat": "",
           "queryType": "range",
           "refId": "A"
