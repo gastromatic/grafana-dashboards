@@ -1,40 +1,63 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_LOKI",
+      "label": "Loki",
+      "description": "A kubernetes-enabled loki service",
+      "type": "datasource",
+      "pluginId": "loki",
+      "pluginName": "Loki"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "7.3.1"
+    },
+    {
+      "type": "panel",
+      "id": "logs",
+      "name": "Logs",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "loki",
+      "name": "Loki",
+      "version": "1.0.0"
+    }
+  ],
   "annotations": {
     "list": [
       {
         "builtIn": 1,
-        "datasource": {
-          "type": "datasource",
-          "uid": "grafana"
-        },
+        "datasource": "-- Grafana --",
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations & Alerts",
-        "target": {
-          "limit": 100,
-          "matchAny": false,
-          "tags": [],
-          "type": "dashboard"
-        },
         "type": "dashboard"
       }
     ]
   },
-  "description": "A very simple dashboard for logs, allowing to filter by container name, and case-insensitive search.",
   "editable": true,
-  "fiscalYearStartMonth": 0,
   "gnetId": 13359,
   "graphTooltip": 0,
-  "id": 470,
+  "id": null,
+  "iteration": 1604784076394,
   "links": [],
-  "liveNow": false,
   "panels": [
     {
-      "datasource": {
-        "type": "loki"
-      },
+      "datasource": "${DS_LOKI}",
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 22,
         "w": 24,
@@ -43,49 +66,38 @@
       },
       "id": 2,
       "options": {
-        "dedupStrategy": "none",
-        "enableLogDetails": true,
-        "prettifyLogMessage": false,
-        "showCommonLabels": false,
         "showLabels": false,
         "showTime": false,
-        "sortOrder": "Ascending",
+        "sortOrder": "Descending",
         "wrapLogMessage": true
       },
       "pluginVersion": "7.1.5",
       "targets": [
         {
-          "datasource": {
-            "type": "loki"
-          },
-          "editorMode": "code",
           "expr": "{container=~\"$container\"} |~ \"(?i)$search\"",
           "legendFormat": "",
-          "queryType": "range",
           "refId": "A"
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
       "transparent": true,
       "type": "logs"
     }
   ],
   "refresh": "10s",
-  "schemaVersion": 37,
+  "schemaVersion": 26,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": [
       {
         "allValue": ".*",
-        "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
-        },
-        "datasource": {
-          "type": "loki"
-        },
+        "current": {},
+        "datasource": "${DS_LOKI}",
         "definition": "label_values(container)",
+        "error": null,
         "hide": 0,
         "includeAll": true,
         "label": "Container",
@@ -98,6 +110,7 @@
         "skipUrlSync": false,
         "sort": 5,
         "tagValuesQuery": "",
+        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
@@ -108,6 +121,7 @@
           "text": "",
           "value": ""
         },
+        "error": null,
         "hide": 0,
         "label": "Search",
         "name": "search",
@@ -145,6 +159,6 @@
   "timezone": "",
   "title": "Loki Logs with quicksearch - gastromatic",
   "uid": "267fd114-2acd-11ee-be56-0242ac120002",
-  "version": 1,
-  "weekStart": ""
+  "version": 2,
+  "description": "A very simple dashboard for logs, allowing to filter by container name, and case-insensitive search."
 }
